@@ -42,6 +42,13 @@ h2{font-size:26px;font-weight:900;margin-bottom:20px;text-transform:uppercase}
 .bonus{font-weight:900;margin:14px 0 4px}
 .best{position:absolute;top:-12px;right:16px;background:var(--gold);color:#000;font-size:12px;font-weight:900;padding:4px 10px;border-radius:99px}
 .ghost{background:none;border:2px solid #F5C542;color:#F5C542}
+.row{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:0 16px 8px}
+.row>*{flex:0 0 70%;scroll-snap-align:center;border-radius:14px;border:1px solid var(--line);background:#111}
+.row video{aspect-ratio:9/16}
+.rev img{flex-basis:80%;align-self:center;cursor:zoom-in}
+.hint{color:var(--muted);font-size:13px;text-align:center;margin-top:8px}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;z-index:9;padding:16px}
+#lb img{max-width:100%;max-height:100%;border-radius:12px}
 .note{color:var(--muted);text-align:center;margin:16px 0 20px}
 details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:10px}
 summary{font-weight:700;cursor:pointer}
@@ -83,6 +90,31 @@ footer{padding:32px 0 100px;text-align:center;color:var(--muted);font-size:13px;
     </div>
   </section>
 
+  <section>
+    <h2>Намунаи <span class="g">корҳо</span></h2>
+    <div class="row">
+      <video src="media/v1.mp4" poster="media/v1.jpg" controls playsinline preload="none"></video>
+      <video src="media/v2.mp4" poster="media/v2.jpg" controls playsinline preload="none"></video>
+      <video src="media/v3.mp4" poster="media/v3.jpg" controls playsinline preload="none"></video>
+      <video src="media/v4.mp4" poster="media/v4.jpg" controls playsinline preload="none"></video>
+    </div>
+    <p class="hint">← ба тараф кашед →</p>
+  </section>
+
+  <section>
+    <h2>Натиҷаи <span class="g">шогирдон</span></h2>
+    <div class="row rev">
+      <img src="media/r1.jpg" alt="Фикри шогирд" loading="lazy">
+      <img src="media/r4.jpg" alt="Фикри шогирд" loading="lazy">
+      <img src="media/r5.jpg" alt="Фикри шогирд" loading="lazy">
+      <img src="media/r2.jpg" alt="Фикри шогирд" loading="lazy">
+      <img src="media/r3.jpg" alt="Фикри шогирд" loading="lazy">
+      <img src="media/r6.jpg" alt="Фикри шогирд" loading="lazy">
+      <img src="media/r7.jpg" alt="Саҳифаи шогирд" loading="lazy">
+    </div>
+    <p class="hint">Пахш кунед — калон мешавад</p>
+  </section>
+
   <section id="price">
     <h2>Ду <span class="g">тариф</span></h2>
     <div class="plan">
@@ -116,10 +148,15 @@ footer{padding:32px 0 100px;text-align:center;color:var(--muted);font-size:13px;
 </div>
 <footer>© SUNIY TJ ACADEMY</footer>
 <a class="btn bot sticky" href="#">Харидани курс</a>
+<div id="lb"><img alt=""></div>
 <script>
 var TG = "suniy_tj", BOT = "suniytj_bot";
 function link(sel,u){document.querySelectorAll(sel).forEach(function(a){a.href="https://t.me/"+u;a.target="_blank";a.rel="noopener"})}
 link(".tg",TG);link(".bot",BOT);
+var lb=document.getElementById("lb");
+document.querySelectorAll(".rev img").forEach(function(i){i.onclick=function(){lb.firstChild.src=i.src;lb.style.display="flex"}});
+lb.onclick=function(){lb.style.display="none"};
+document.querySelectorAll("video").forEach(function(v){v.onplay=function(){document.querySelectorAll("video").forEach(function(o){if(o!==v)o.pause()})}});
 </script>
 </body>
 </html>
