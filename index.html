@@ -42,13 +42,19 @@ h2{font-size:26px;font-weight:900;margin-bottom:20px;text-transform:uppercase}
 .bonus{font-weight:900;margin:14px 0 4px}
 .best{position:absolute;top:-12px;right:16px;background:var(--gold);color:#000;font-size:12px;font-weight:900;padding:4px 10px;border-radius:99px}
 .ghost{background:none;border:2px solid #F5C542;color:#F5C542}
-.row{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:0 16px 8px}
-.row>*{flex:0 0 70%;scroll-snap-align:center;border-radius:14px;border:1px solid var(--line);background:#111}
-.row video{aspect-ratio:9/16}
-.rev img{flex-basis:80%;align-self:center;cursor:zoom-in}
+.vg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vc{position:relative;padding:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#111;aspect-ratio:9/16;cursor:pointer}
+.vc img{width:100%;height:100%;object-fit:cover;display:block}
+.vc span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:var(--gold);color:#000;font-size:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,.5)}
+.row{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:4px 16px 8px}
+.rc{flex:0 0 82%;scroll-snap-align:center;background:var(--card);border:1px solid rgba(245,197,66,.4);border-radius:18px;padding:20px;margin:0;display:flex;flex-direction:column}
+.st{color:#F5C542;letter-spacing:3px;margin-bottom:10px}
+.rc blockquote{font-size:15px;flex:1}
+.rc figcaption{color:var(--muted);font-size:13px;margin-top:12px}
 .hint{color:var(--muted);font-size:13px;text-align:center;margin-top:8px}
-#lb{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;z-index:9;padding:16px}
-#lb img{max-width:100%;max-height:100%;border-radius:12px}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.95);display:none;align-items:center;justify-content:center;z-index:9;padding:16px}
+#lb video{max-width:100%;max-height:90vh;border-radius:12px}
+#lb b{position:absolute;top:12px;right:18px;font-size:32px;color:#fff;cursor:pointer}
 .note{color:var(--muted);text-align:center;margin:16px 0 20px}
 details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:10px}
 summary{font-weight:700;cursor:pointer}
@@ -92,27 +98,29 @@ footer{padding:32px 0 100px;text-align:center;color:var(--muted);font-size:13px;
 
   <section>
     <h2>Намунаи <span class="g">корҳо</span></h2>
-    <div class="row">
-      <video src="media/v1.mp4" poster="media/v1.jpg" controls playsinline preload="none"></video>
-      <video src="media/v2.mp4" poster="media/v2.jpg" controls playsinline preload="none"></video>
-      <video src="media/v3.mp4" poster="media/v3.jpg" controls playsinline preload="none"></video>
-      <video src="media/v4.mp4" poster="media/v4.jpg" controls playsinline preload="none"></video>
+    <div class="vg">
+      <button class="vc" data-v="media/v1.mp4"><img src="media/v1.jpg" alt="Намунаи кор" loading="lazy"><span>▶</span></button>
+      <button class="vc" data-v="media/v2.mp4"><img src="media/v2.jpg" alt="Намунаи кор" loading="lazy"><span>▶</span></button>
+      <button class="vc" data-v="media/v3.mp4"><img src="media/v3.jpg" alt="Намунаи кор" loading="lazy"><span>▶</span></button>
+      <button class="vc" data-v="media/v4.mp4"><img src="media/v4.jpg" alt="Намунаи кор" loading="lazy"><span>▶</span></button>
+      <button class="vc" data-v="media/v5.mp4"><img src="media/v5.jpg" alt="Намунаи кор" loading="lazy"><span>▶</span></button>
+      <button class="vc" data-v="media/v6.mp4"><img src="media/v6.jpg" alt="Намунаи кор" loading="lazy"><span>▶</span></button>
+      <button class="vc" data-v="media/v7.mp4"><img src="media/v7.jpg" alt="Намунаи кор" loading="lazy"><span>▶</span></button>
+      <button class="vc" data-v="media/v8.mp4"><img src="media/v8.jpg" alt="Намунаи кор" loading="lazy"><span>▶</span></button>
     </div>
-    <p class="hint">← ба тараф кашед →</p>
   </section>
 
   <section>
-    <h2>Натиҷаи <span class="g">шогирдон</span></h2>
-    <div class="row rev">
-      <img src="media/r1.jpg" alt="Фикри шогирд" loading="lazy">
-      <img src="media/r4.jpg" alt="Фикри шогирд" loading="lazy">
-      <img src="media/r5.jpg" alt="Фикри шогирд" loading="lazy">
-      <img src="media/r2.jpg" alt="Фикри шогирд" loading="lazy">
-      <img src="media/r3.jpg" alt="Фикри шогирд" loading="lazy">
-      <img src="media/r6.jpg" alt="Фикри шогирд" loading="lazy">
-      <img src="media/r7.jpg" alt="Саҳифаи шогирд" loading="lazy">
+    <h2>Фикри <span class="g">шогирдон</span></h2>
+    <div class="row">
+      <figure class="rc"><div class="st">★★★★★</div><blockquote>Ассалом алейкум устод, аз сидқи дил миннатдорам. Аз 0 то 100 беҳтарин буд. Кадоме курсро харидорӣ мекунад, пушаймон намешавад.</blockquote><figcaption>— Шогирд</figcaption></figure>
+      <figure class="rc"><div class="st">★★★★★</div><blockquote>Ма бисёр хурсандам. Баъди курси шуморо харидан чандбаробар даромад кардам, шогирдҳо ҳам дорам. Курсатон хушрӯ ва осон фаҳмонда шудааст.</blockquote><figcaption>— Шогирд</figcaption></figure>
+      <figure class="rc"><div class="st">★★★★★</div><blockquote>Курс хеле ба ман писанд омад. Дар муддати кӯтоҳ курсро омӯхтам. Баҳои 10 медиҳам 🥰</blockquote><figcaption>— Шогирд</figcaption></figure>
+      <figure class="rc"><div class="st">★★★★★</div><blockquote>100% розӣ. Пули гирифтагиатон ҳалол бод ❤️</blockquote><figcaption>— Шогирд</figcaption></figure>
+      <figure class="rc"><div class="st">★★★★★</div><blockquote>Сайт кушодам, аз курси шумо ёд гирифтам. Ҳам нархатон арзон, ҳам дарсҳо фаҳмо.</blockquote><figcaption>— Шогирд</figcaption></figure>
+      <figure class="rc"><div class="st">★★★★★</div><blockquote>Ассалом, видео сохтам — ташаккур барои омӯзиш ❤️</blockquote><figcaption>— Шогирд</figcaption></figure>
     </div>
-    <p class="hint">Пахш кунед — калон мешавад</p>
+    <p class="hint">← ба тараф кашед →</p>
   </section>
 
   <section id="price">
@@ -148,15 +156,14 @@ footer{padding:32px 0 100px;text-align:center;color:var(--muted);font-size:13px;
 </div>
 <footer>© SUNIY TJ ACADEMY</footer>
 <a class="btn bot sticky" href="#">Харидани курс</a>
-<div id="lb"><img alt=""></div>
+<div id="lb"><b>×</b><video controls playsinline></video></div>
 <script>
 var TG = "suniy_tj", BOT = "suniytj_bot";
 function link(sel,u){document.querySelectorAll(sel).forEach(function(a){a.href="https://t.me/"+u;a.target="_blank";a.rel="noopener"})}
 link(".tg",TG);link(".bot",BOT);
-var lb=document.getElementById("lb");
-document.querySelectorAll(".rev img").forEach(function(i){i.onclick=function(){lb.firstChild.src=i.src;lb.style.display="flex"}});
-lb.onclick=function(){lb.style.display="none"};
-document.querySelectorAll("video").forEach(function(v){v.onplay=function(){document.querySelectorAll("video").forEach(function(o){if(o!==v)o.pause()})}});
+var lb=document.getElementById("lb"),lv=lb.querySelector("video");
+document.querySelectorAll(".vc").forEach(function(b){b.onclick=function(){lv.src=b.dataset.v;lb.style.display="flex";lv.play()}});
+lb.onclick=function(e){if(e.target!==lv){lv.pause();lv.removeAttribute("src");lv.load();lb.style.display="none"}};
 </script>
 </body>
 </html>
